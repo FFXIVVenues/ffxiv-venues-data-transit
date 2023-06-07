@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 
 var config = new ConfigurationBuilder()
     .AddUserSecrets<Program>(optional: true)
-    .AddEnvironmentVariables("FFXIV_VENUES_DATATRANSIT_")
+    .AddEnvironmentVariables("FFXIV_VENUES_DATA_TRANSIT_")
     .Build();
 
 var originTypeName = config.GetValue<string>("Origin:Type");
