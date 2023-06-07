@@ -6,20 +6,15 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <UserSecretsId>b574f11f-990e-402f-9eb5-e91f34cc3d25</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
-    </ItemGroup>
-
-    <ItemGroup>
+      <PackageReference Include="FFXIVVenues.VenueModels" Version="11.3.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
       <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="7.0.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
-      <PackageReference Include="Quartz" Version="3.6.2" />
       <PackageReference Include="Quartz.Serialization.Json" Version="3.6.2" />
     </ItemGroup>
 

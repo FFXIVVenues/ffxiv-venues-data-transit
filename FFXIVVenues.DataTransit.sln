@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIVVenues.DataTransit", "FFXIVVenues.DataTransit\FFXIVVenues.DataTransit.csproj", "{8E8825B6-F17F-4B2E-8C44-8C1986B1F70B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIVVenues.DataTransit", "FFXIVVenues.DataTransit.csproj", "{8E8825B6-F17F-4B2E-8C44-8C1986B1F70B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
