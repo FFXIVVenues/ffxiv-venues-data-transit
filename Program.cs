@@ -10,6 +10,23 @@ var config = new ConfigurationBuilder()
     .AddEnvironmentVariables("FFXIV_VENUES_DATA_TRANSIT_")
     .Build();
 
+var preActionConfigs = config.GetSection("PreActions").GetChildren();
+var b = 0;
+foreach (var preActionConfig in preActionConfigs)
+{
+    var preActionTypeName = preActionConfig.GetValue<string>("Type");
+    if (preActionTypeName == null)
+        throw new ConfigurationErrorsException($"PreActions.{b}.Type is not specified.");
+    var preActionType = Type.GetType(preActionTypeName);
+    if (preActionType == null)
+        throw new ConfigurationErrorsException($"Could not locate type '{preActionType}' indicated in PreActions.");
+    if (Activator.CreateInstance(preActionType) is not IPreAction preAction)
+        throw new ConfigurationErrorsException($"Type '{preActionTypeName}' indicated in PreActions does not implement the interface IPreAction.");
+    preActionConfig.Bind(preAction);
+    await preAction.ExecuteAsync();
+    b++;
+}
+
 var originTypeName = config.GetValue<string>("Origin:Type");
 if (originTypeName == null)
     throw new ConfigurationErrorsException("Origin:Type is not specified.");
@@ -62,7 +79,7 @@ foreach (var postActionConfig in postActionConfigs)
     if (postActionType == null)
         throw new ConfigurationErrorsException($"Could not locate type '{postActionType}' indicated in PostActions.");
     if (Activator.CreateInstance(postActionType) is not IPostAction postAction)
-        throw new ConfigurationErrorsException($"Type '{postActionTypeName}' indicated in PostActions does not implement the interface IPostActions.");
+        throw new ConfigurationErrorsException($"Type '{postActionTypeName}' indicated in PostActions does not implement the interface IPostAction.");
     postActionConfig.Bind(postAction);
     await postAction.ExecuteAsync();
     a++;

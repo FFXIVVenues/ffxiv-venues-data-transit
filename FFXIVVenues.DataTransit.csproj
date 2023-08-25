@@ -10,7 +10,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="FFXIVVenues.VenueModels" Version="11.3.0" />
+      <PackageReference Include="DeepEqual" Version="4.2.1" />
+      <PackageReference Include="FFXIVVenues.VenueModels" Version="13.0.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
       <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="7.0.0" />
